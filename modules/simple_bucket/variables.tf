@@ -104,3 +104,15 @@ variable "lifecycle_rules" {
   }))
   default = []
 }
+
+variable "log_bucket" {
+  description = "The name of the bucket to which access logs for this bucket should be written. If this is not supplied then no access logs are written."
+  type        = string
+  default     = null
+}
+
+variable "log_object_prefix" {
+  description = "The prefix for access log objects. If this is not provided then GCS defaults it to the name of the source bucket."
+  type        = string
+  default     = null
+}

@@ -50,12 +50,16 @@ Functional examples are included in the
 | retention\_policy | Configuration of the bucket's data retention policy for how long objects in the bucket should be retained. | object | `"null"` | no |
 | storage\_class | The Storage Class of the new bucket. | string | `"null"` | no |
 | versioning | While set to true, versioning is fully enabled for this bucket. | bool | `"true"` | no |
+| log_bucket | The name of the bucket to which access logs for this bucket should be written. If this is not supplied then no access logs are written. | string | `"null"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | bucket | The created storage bucket |
+| name | The name of the storage bucket |
+| self_link | The self link of the storage bucket |
+| url | The base URL of the storage bucket |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
