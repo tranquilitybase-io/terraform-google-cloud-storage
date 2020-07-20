@@ -163,3 +163,9 @@ variable "website" {
   default     = {}
   description = "Map of website values. Supported attributes: main_page_suffix, not_found_page"
 }
+
+variable "log_bucket" {
+  description = "The name of the bucket to which access logs for this bucket should be written. If this is not supplied then no access logs are written. Supported attributes: log_bucket, log_object_prefix"
+  type        = any
+  default     = {}
+}

@@ -42,6 +42,14 @@ resource "google_storage_bucket" "bucket" {
     }
   }
 
+  dynamic "logging" {
+    for_each = var.log_bucket == null ? [] : [var.log_bucket]
+    content {
+      log_bucket        = var.log_bucket
+      log_object_prefix = var.log_object_prefix
+    }
+  }
+
   dynamic "lifecycle_rule" {
     for_each = var.lifecycle_rules
     content {
