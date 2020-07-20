@@ -87,6 +87,13 @@ resource "google_storage_bucket" "buckets" {
       not_found_page   = lookup(website.value, "not_found_page", null)
     }
   }
+  dynamic "logging" {
+    for_each = lookup(var.log_bucket, element(var.names, count.index), {}) != {} ? { v = lookup(var.log_bucket, element(var.names, count.index)) } : {}
+    content {
+      log_bucket        = lookup(logging.value, "log_bucket", null)
+      log_object_prefix = lookup(logging.value, "log_object_prefix", null)
+    }
+  }
 
   dynamic "lifecycle_rule" {
     for_each = var.lifecycle_rules
